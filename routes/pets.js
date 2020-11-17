@@ -12,6 +12,7 @@ module.exports = (app) => {
   });
   app.post('/pets', (req, res) => {
     var pet = new Pet(req.body);
+    console.log(pet)
 
     pet.save()
       .then((pet) => {
@@ -20,6 +21,7 @@ module.exports = (app) => {
       .catch((err) => {
         // STATUS OF 400 FOR VALIDATIONS
         res.status(400).send(err.errors);
+        console.log(err)
       }) ;
   });
 
